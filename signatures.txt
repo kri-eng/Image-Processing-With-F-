@@ -1,0 +1,68 @@
+#light
+
+
+
+
+
+namespace ImageLibrary
+  module Operations = begin
+    val private _getGrayscaleTruple :
+      r_val:int * g_val:int * b_val:int -> int * int * int
+    val private _grayScale :
+      image:(int * int * int) list list -> (int * int * int) list list
+    val Grayscale :
+      width:int ->
+        height:int ->
+          depth:int ->
+            image:(int * int * int) list list -> (int * int * int) list list
+    val private _gettingHelper :
+      t_val:'a -> rgb_val:'a -> int when 'a : comparison
+    val private _getThresholdedTruple :
+      t_val:int -> r_val:int * g_val:int * b_val:int -> int * int * int
+    val private _thresHold :
+      t_val:int ->
+        image:(int * int * int) list list -> (int * int * int) list list
+    val Threshold :
+      width:int ->
+        height:int ->
+          depth:int ->
+            image:(int * int * int) list list ->
+              threshold:int -> (int * int * int) list list
+    val private __FlipHorizontal : row:'a list -> new_row:'a list -> 'a list
+    val private _FlipHorizontal : image:'a list list -> 'a list list
+    val FlipHorizontal :
+      width:int ->
+        height:int ->
+          depth:int ->
+            image:(int * int * int) list list -> (int * int * int) list list
+    val private _calculateEdge :
+      r_val:int * g_val:int * b_val:int ->
+        r_val_r:int * g_val_r:int * b_val_r:int ->
+          r_val_b:int * g_val_b:int * b_val_b:int ->
+            t_val:int -> int * int * int
+    val private _edgeDetectionHelper :
+      row1:(int * int * int) list ->
+        row2:(int * int * int) list ->
+          width:int -> threshold:int -> (int * int * int) list
+    val private _edgeDetection :
+      image:(int * int * int) list list ->
+        width:int -> height:int -> threshold:int -> (int * int * int) list list
+    val EdgeDetect :
+      width:int ->
+        height:int ->
+          depth:int ->
+            image:(int * int * int) list list ->
+              threshold:int -> (int * int * int) list list
+    val private ___rotate90 :
+      row:'a list -> expectedWidth:int -> currWidth:int -> 'a
+    val private __rotate90 :
+      image:'a list list -> currWidth:int -> totalWidth:'b -> 'a list
+    val private _rotate90 :
+      image:'a list list -> totalWidth:int -> currWidth:int -> 'a list list
+    val RotateRight90 :
+      width:int ->
+        height:int ->
+          depth:int ->
+            image:(int * int * int) list list -> (int * int * int) list list
+  end
+
